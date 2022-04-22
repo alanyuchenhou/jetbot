@@ -1,5 +1,5 @@
-ARG BASE_IMAGE=nvcr.io/nvidia/l4t-pytorch:r32.4.3-pth1.6-py3
-FROM ${BASE_IMAGE}
+ARG BASE_IMAGE=nvcr.io/nvidia/l4t-pytorch:r32.7.1-pth1.10-py3
+FROM nvcr.io/nvidia/l4t-pytorch:r32.7.1-pth1.10-py3
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -99,7 +99,7 @@ RUN cd && \
 # INSTALL MISC DEPENDENCIES
 # ============================
 RUN apt-get update && apt-get install -y supervisor unzip
-RUN apt install -y python3-smbus && pip3 install pyzmq
+RUN apt install -y python3-smbus && pip3 install pyzmq pyserial
 
 
 # =================
